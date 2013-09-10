@@ -35,24 +35,24 @@ public interface SepModel {
      * 
      * @throws IllegalStateException if a subscription by that name already exists.
      */
-    void addSubscription(String name) throws InterruptedException, KeeperException, IOException;
+    void addSubscription(String name) throws /*Replication*/Exception, InterruptedException, KeeperException, IOException;
 
     /**
      * Adds a subscription, doesn't fail if a subscription by that name exists.
      */
-    boolean addSubscriptionSilent(String name) throws InterruptedException, KeeperException, IOException;
+    boolean addSubscriptionSilent(String name) throws /*Replication*/Exception, InterruptedException, KeeperException, IOException;
 
     /**
      * Removes a subscription.
      * 
      * @throws IllegalStateException if no subscription by that name exists.
      */
-    void removeSubscription(String name) throws IOException;
+    void removeSubscription(String name) throws /*Replication*/Exception, IOException;
 
     /**
      * Removes a subscription, doesn't fail if there is no subscription with that name.
      */
-    boolean removeSubscriptionSilent(String name) throws IOException;
+    boolean removeSubscriptionSilent(String name) throws /*Replication*/Exception, IOException;
 
     boolean hasSubscription(String name) throws IOException;
 }

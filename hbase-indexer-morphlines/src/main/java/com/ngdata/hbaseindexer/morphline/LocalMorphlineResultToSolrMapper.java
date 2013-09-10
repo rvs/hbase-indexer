@@ -119,7 +119,7 @@ final class LocalMorphlineResultToSolrMapper implements ResultToSolrMapper, Conf
     public LocalMorphlineResultToSolrMapper() {
     }
 
- @Override
+  @Override
   public void configure(Map<String, String> params) {
     if (LOG.isTraceEnabled()) {
       LOG.trace("CWD is {}", new File(".").getAbsolutePath());

@@ -65,14 +65,14 @@ public class SepModelImpl implements SepModel {
     }
 
     @Override
-    public void addSubscription(String name) throws InterruptedException, KeeperException, IOException {
+    public void addSubscription(String name) throws /*Replication*/Exception, InterruptedException, KeeperException, IOException {
         if (!addSubscriptionSilent(name)) {
             throw new IllegalStateException("There is already a subscription for name '" + name + "'.");
         }
     }
 
     @Override
-    public boolean addSubscriptionSilent(String name) throws InterruptedException, KeeperException, IOException {
+    public boolean addSubscriptionSilent(String name) throws /*Replication*/Exception, InterruptedException, KeeperException, IOException {
         ReplicationAdmin replicationAdmin = new ReplicationAdmin(hbaseConf);
         try {
             String internalName = toInternalSubscriptionName(name);
@@ -102,14 +102,14 @@ public class SepModelImpl implements SepModel {
     }
 
     @Override
-    public void removeSubscription(String name) throws IOException {
+    public void removeSubscription(String name) throws /*Replication*/Exception, IOException {
         if (!removeSubscriptionSilent(name)) {
             throw new IllegalStateException("No subscription named '" + name + "'.");
         }
     }
 
     @Override
-    public boolean removeSubscriptionSilent(String name) throws IOException {
+    public boolean removeSubscriptionSilent(String name) throws /*Replication*/Exception, IOException {
         ReplicationAdmin replicationAdmin = new ReplicationAdmin(hbaseConf);
         try {
             String internalName = toInternalSubscriptionName(name);
